@@ -45,6 +45,7 @@ define([
 
     googleAnalytics.onReady = function() {
 
+        console.log('googleAnalytics: onReady');
         // First configure GA
         _gaq.push([
             '_setAccount',

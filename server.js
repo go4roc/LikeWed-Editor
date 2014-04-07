@@ -7,12 +7,13 @@ app.engine('html', require('ejs').renderFile);
 
 // Force HTTPS on stackedit.io
 app.all('*', function(req, res, next) {
-    if (req.headers.host == 'stackedit.io' && req.headers['x-forwarded-proto'] != 'https') {
+    /*if (req.headers.host == 'stackedit.io' && req.headers['x-forwarded-proto'] != 'https') {
         res.redirect('https://stackedit.io' + req.url);
     }
     else {
         next();
-    }
+    }*/
+    next();
 });
 
 // Use gzip compression
@@ -33,7 +34,7 @@ app.use(function(req, res, next) {
 });
 
 // Listen on port 3000
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 app.listen(port, null, function() {
     console.log('Server started: http://localhost:' + port);
 });

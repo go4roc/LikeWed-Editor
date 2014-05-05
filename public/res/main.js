@@ -45,7 +45,6 @@ requirejs.config({
         FileSaver: 'bower-libs/FileSaver/FileSaver',
         stacktrace: 'bower-libs/stacktrace/stacktrace',
         'requirejs-text': 'bower-libs/requirejs-text/text',
-        'bootstrap-tour': 'bower-libs/bootstrap-tour/build/js/bootstrap-tour',
         css_browser_selector: 'bower-libs/css_browser_selector/css_browser_selector',
         'jquery-mousewheel': 'bower-libs/jquery-mousewheel/jquery.mousewheel',
         'pagedown-ace': 'bower-libs/pagedown-ace/Markdown.Editor',
@@ -100,12 +99,6 @@ requirejs.config({
         },
         highlightjs: {
             exports: 'hljs'
-        },
-        'bootstrap-tour': {
-            deps: [
-                'bootstrap'
-            ],
-            exports: 'Tour'
         },
         bootstrap: [
             'jquery'

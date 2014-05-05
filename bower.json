@@ -1,6 +1,6 @@
 {
   "name": "stackedit",
-  "version": "3.1.12",
+  "version": "3.1.13",
   "description": "StackEdit is a free, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.",
   "dependencies": {
     "bootstrap": "v3.0.0",
@@ -16,7 +16,6 @@
     "FileSaver": "*",
     "stacktrace": "~0.5.3",
     "requirejs-text": "~2.0.10",
-    "bootstrap-tour": "~0.7.1",
     "ace": "4bbe5346f2ae5ad35c0c47defa244ab27aedd451",
     "pagedown-ace": "https://github.com/benweet/pagedown-ace.git#84d5e1b7ff233a1c8cafa9716e825228d275120c",
     "pagedown-extra": "https://github.com/jmcmanus/pagedown-extra.git#bd0870e3e871e15bde1fa5a427e3e10028a09789",

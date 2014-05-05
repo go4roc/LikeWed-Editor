@@ -10,18 +10,7 @@ define([
     "fileMgr",
     "sharing",
     "classes/Provider",
-    "classes/AsyncTask",
-    "providers/bloggerProvider",
-    "providers/bloggerPageProvider",
-    "providers/dropboxProvider",
-    "providers/gistProvider",
-    "providers/githubProvider",
-    "providers/gdriveProvider",
-    "providers/gdrivesecProvider",
-    "providers/gdriveterProvider",
-    "providers/sshProvider",
-    "providers/tumblrProvider",
-    "providers/wordpressProvider"
+    "classes/AsyncTask"
 ], function($, _, constants, utils, storage, settings, eventMgr, fileSystem, fileMgr, sharing, Provider, AsyncTask) {
 
     var publisher = {};

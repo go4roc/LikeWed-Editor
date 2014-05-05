@@ -7,12 +7,6 @@ app.engine('html', require('ejs').renderFile);
 
 // Force HTTPS on stackedit.io
 app.all('*', function(req, res, next) {
-    /*if (req.headers.host == 'stackedit.io' && req.headers['x-forwarded-proto'] != 'https') {
-        res.redirect('https://stackedit.io' + req.url);
-    }
-    else {
-        next();
-    }*/
     next();
 });
 
@@ -21,6 +15,7 @@ app.use(express.compress());
 
 // Serve static resources
 app.use(express.static(__dirname + '/public'));
+app.use(express.logger());
 
 // Serve viewer.html in /viewer
 app.get('/viewer', function (req, res) {
@@ -34,7 +29,7 @@ app.use(function(req, res, next) {
 });
 
 // Listen on port 3000
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3000;
 app.listen(port, null, function() {
     console.log('Server started: http://localhost:' + port);
 });

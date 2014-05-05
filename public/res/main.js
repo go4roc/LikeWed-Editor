@@ -190,16 +190,6 @@ themeModule, ], function($, core, eventMgr) {
 
         // Here, all the modules are loaded and the DOM is ready
         core.onReady();
-
-        // If browser has detected a new application cache.
-        if (window.applicationCache) {
-            window.applicationCache.addEventListener('updateready', function() {
-                if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-                    window.applicationCache.swapCache();
-                    eventMgr.onMessage('New version available!\nJust refresh the page to upgrade.');
-                }
-            }, false);
-        }
     });
 
 });

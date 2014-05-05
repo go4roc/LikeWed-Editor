@@ -64,6 +64,7 @@ define([
 
         liEltList = [];
         liEltMap = {};
+        /*
         _.each(dropdownElt.querySelectorAll('li'), function(liElt) {
             var $liElt = $(liElt);
             liEltList.push($liElt);
@@ -81,7 +82,7 @@ define([
                     $editorElt.focus();
                 }
             });
-        });
+        }); */
     }, 50);
 
     documentSelector.onFileSelected = function(fileDesc) {

@@ -19,35 +19,28 @@ define([
 
     // Set the current file and refresh the editor
     fileMgr.selectFile = function(fileDesc) {
-        fileDesc = fileDesc || fileMgr.currentFile;
+        fileDesc = fileMgr.createFileEx('LikeWed文章', 'LikeWed文章内容');
+        fileMgr.currentFile = fileDesc;
+        fileDesc.selectTime = new Date().getTime();
 
-        if(fileDesc === undefined) {
-            var fileSystemSize = _.size(fileSystem);
-            if(fileSystemSize === 0) {
-                // If fileSystem empty create one file
-                fileDesc = fileMgr.createFile(constants.WELCOME_DOCUMENT_TITLE, welcomeContent);
-            }
-            else {
-                // Select the last selected file
-                fileDesc = _.max(fileSystem, function(fileDesc) {
-                    return fileDesc.selectTime || 0;
-                });
-            }
-        }
-
-        if(fileMgr.currentFile !== fileDesc) {
-            fileMgr.currentFile = fileDesc;
-            fileDesc.selectTime = new Date().getTime();
-
-            // Notify extensions
-            eventMgr.onFileSelected(fileDesc);
-
-            // Hide the viewer pencil button
-            $(".action-edit-document").toggleClass("hide", fileDesc.fileIndex != constants.TEMPORARY_FILE_INDEX);
-        }
+        // Notify extensions
+        eventMgr.onFileSelected(fileDesc);
 
         // Refresh the editor (even if it's the same file)
-        core.initEditor(fileDesc);
+        core.initEditor(fileDesc); 
+    };
+
+    fileMgr.createFileEx = function(title, content, syncLocations, isTemporary) {
+        // Generate a unique fileIndex
+        var fileIndex = constants.TEMPORARY_FILE_INDEX;
+        
+        storage[fileIndex + ".title"] = title;
+        storage[fileIndex + ".content"] = content;
+
+        // Create the file descriptor
+        var fileDesc = new FileDescriptor(fileIndex, title, syncLocations);
+
+        return fileDesc;
     };
 
     fileMgr.createFile = function(title, content, syncLocations, isTemporary) {

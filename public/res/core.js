@@ -24,7 +24,6 @@ define([
     'ace/requirejs/text!ace/theme/textmate.css',
     'ace/ext/spellcheck',
     'ace/ext/searchbox'
-
 ], function($, _, crel, ace, constants, utils, storage, settings, eventMgr, shortcutMgr, mousetrap, bodyIndexHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsUserCustomExtensionTooltipHTML) {
 
     var core = {};
@@ -633,7 +632,7 @@ define([
         }
         else {
             editor.run(aceEditor, previewWrapper);
-            aceEditor.selection.setSelectionRange(fileDesc.editorSelectRange);
+            //aceEditor.selection.setSelectionRange(fileDesc.editorSelectRange);
             aceEditor.focus();
         }
 
